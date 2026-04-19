@@ -1,0 +1,15 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.ipynb_checkpoints/
+
+# Large Instacart / derived datasets (keep small reference CSVs only)
+data/raw/orders.csv
+data/raw/order_products__prior.csv
+data/raw/order_products__train.csv
+EDA/data/processed/final_features_train.csv
+EDA/data/processed/user_product_features.csv
