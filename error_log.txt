@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 14, in <module>
+    sampled_users = pd.Series(orders['user_id'].unique()).sample(min(150, len(orders['user_id'].unique())), random_state=42)
+                              ~~~~~~^^^^^^^^^^^
+  File "C:\Users\shubh\OneDrive\Desktop\Project_ML\venv\Lib\site-packages\pandas\core\frame.py", line 4378, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\shubh\OneDrive\Desktop\Project_ML\venv\Lib\site-packages\pandas\core\indexes\range.py", line 525, in get_loc
+    raise KeyError(key)
+KeyError: 'user_id'
