@@ -1,0 +1,5 @@
+======Starting Run on Compute======
+The run ID for the run on compute is imgbldrun_4e8d82d
+
+Additional logs for the run: https://ml.azure.com/experiments/id/prepare_image/runs/imgbldrun_4e8d82d?wsid=/subscriptions/4d71fa38-49e9-45c1-8a01-534eb7e98d3f/resourcegroups/Rangdalgroups/workspaces/shubhamiitgn&tid=720bb5a9-1f1a-427b-afa2-8bcb07920f02
+

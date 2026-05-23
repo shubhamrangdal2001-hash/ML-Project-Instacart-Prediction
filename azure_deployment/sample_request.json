@@ -1,0 +1,5 @@
+{
+  "dataframe_records": [
+    {"user_id": 112, "top_k": 5, "threshold": 0.15}
+  ]
+}

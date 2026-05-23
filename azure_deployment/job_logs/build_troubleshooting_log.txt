@@ -1,0 +1,14 @@
+AzureML Image Build Analysis
+==============================================================
+
+Build Job
+==============================================================
+[Info] Build status: failed. For more details see https://aka.ms/azureml/environment/troubleshooting-guide
+
+==============================================================
+Build and Error Analysis
+==============================================================
+[Info] No errors or warnings found. For more details see https://aka.ms/azureml/environment/troubleshooting-guide
+
+==============================================================
+End of AzureML Image Build Analysis

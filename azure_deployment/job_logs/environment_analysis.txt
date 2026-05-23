@@ -1,0 +1,12 @@
+AzureML Environment Definition Analysis
+==============================================================
+
+Environment Analysis
+==============================================================
+Environment Name: InstacartPrediction
+Environment Version: f8ad26f9f178a58b934c775e383f70cddee13e9e29858eea48f3a9e5c1d19433
+[Warning: Reproducibility] Pip not pinned. For reproducibility, specify the pip resolver version in the conda dependencies. For more details see https://aka.ms/azureml/environment/pip-not-pinned
+[Warning: Reproducibility] The following dependencies are unpinned: azureml-inference-server-http, azureml-defaults, inference-schema, pip. For reproducibility, specify dependency versions. For more details see https://aka.ms/azureml/environment/unpinned-dependencies
+
+==============================================================
+End of AzureML Environment Definition Analysis

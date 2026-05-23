@@ -19,6 +19,19 @@ st.title("🛒 Retail Oracle: Predictive Cart Intelligence")
 st.markdown("Predict which products a user will inherently reorder next time they shop on the grocery platform, optimizing next-cart precision.")
 
 # --- CACHING DATA & MODELS ---
+import pickle
+
+@st.cache_resource(show_spinner="Loading Serialized Predictive Model & Data Package...")
+def load_serialized_model_package():
+    """Attempts to load a pre-trained model and global feature context from model.pkl."""
+    pkl_opts = ["Instacart_Predictive_Cart/model.pkl", "model.pkl", "../model.pkl"]
+    for p in pkl_opts:
+        if os.path.exists(p):
+            with open(p, 'rb') as f:
+                package = pickle.load(f)
+            return package
+    return None
+
 @st.cache_data(show_spinner=False)
 def load_historical_data():
     """Loads the real user and product history data into memory."""
@@ -75,8 +88,31 @@ def get_trained_model(_orders, _prior):
 # Load things up
 with st.spinner("Loading Raw Grocery Data into Pipeline Framework..."):
     try:
-        orders, prior, products = load_historical_data()
-        model, required_features, global_p_feats, global_u_feats = get_trained_model(orders, prior)
+        package = load_serialized_model_package()
+        if package is not None:
+            st.info("⚡ Loaded model and data assets from pre-trained `model.pkl` package.")
+            model = package['model']
+            required_features = package['features']
+            global_p_feats = package['global_p_feats']
+            global_u_feats = package['global_u_feats']
+            orders = package['orders']
+            prior = package['prior']
+            
+            # Load products CSV (not packaged) or extract from package if present
+            if 'products' in package:
+                products = package['products']
+            else:
+                path_opts = ["data/raw", "../data/raw", "../../data/raw", "C:/Users/shubh/OneDrive/Desktop/Project_ML/data/raw"]
+                valid_path = path_opts[0]
+                for p in path_opts:
+                    if os.path.exists(p):
+                        valid_path = p
+                        break
+                loader = InstacartDataLoader(data_path=valid_path)
+                products = loader.load_table('products.csv')
+        else:
+            orders, prior, products = load_historical_data()
+            model, required_features, global_p_feats, global_u_feats = get_trained_model(orders, prior)
     except Exception as e:
         st.error(f"Error loading system pipeline: {e}")
         st.stop()

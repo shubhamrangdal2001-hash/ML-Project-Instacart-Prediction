@@ -1,0 +1,16 @@
+name: instacart-deployment-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - numpy
+    - pandas
+    - scikit-learn
+    - xgboost
+    - azureml-defaults
+    - inference-schema
+    - mlflow
+# Cache-buster comment to trigger new environment hash
